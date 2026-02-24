@@ -22,7 +22,7 @@ This algorithm is parameter-free and entirely data-driven, suitable for extracti
 
 ## File Description
 
-`PrunNet_FilteringEdges_Combo(1).py` contains the following functions:
+`PrunNet_FilteringEdges_Combo.py` contains the following functions:
 
 - **`PrunNet_FilteringEdges(input_file_path, output_folder_path)`**  
   The main function. Reads the input file, applies XIFA to both rows and columns (processing the original matrix and its transpose separately), and takes the intersection (union of non-zero elements) of the two results as the final filtered network. Outputs the result as a CSV file and prints statistical information.
@@ -35,11 +35,15 @@ This algorithm is parameter-free and entirely data-driven, suitable for extracti
 
 ## Dependencies
 
-- `numpy`
-- `pandas`
-- `tqdm`
-- `time`
-- `os`
+The code has been tested with the following environment:
+
+- Python 3.12
+- numpy == 1.26.4
+- pandas == 2.2.2
+- openpyxl == 3.1.3 (required for reading Excel files)
+- tqdm == 4.66.4
+
+The modules `time` and `os` are part of the Python standard library and do not require separate installation.
 
 ## Input Requirements
 
@@ -100,5 +104,4 @@ The main function applies pruning to the original matrix and its transpose separ
 - The pruning process preserves the local importance of each node; therefore, the final network remains directed.
 - For large-scale matrices (e.g., thousands of nodes), computation time may be significant. A high-performance computing environment is recommended.
 - Progress bars (`tqdm`) in the code display the processing status in real-time.
-
 
